@@ -6,10 +6,10 @@ import MessagesItem from "./MessageItem/Message";
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.dialogs.map((el) => <DialogItem name={el.name} id={el.id}/>);
-    let messageElements = props.messages.map((mess) => <MessagesItem message={mess.message} likecount={mess.likecount}/>);
+    let dialogsElements = props.state.dialogs.map((el) => <DialogItem name={el.name} id={el.id}/>);
+    let messageElements = props.state.messages.map((mess) => <MessagesItem message={mess.message} likecount={mess.likecount}/>);
     return (
-        <div>
+            <div>
             <div className={styles.dialogs}>
                 <div className={styles.dialogsItems}>
                     {dialogsElements}
