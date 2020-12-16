@@ -1,0 +1,27 @@
+.nav {
+    grid-area: nav;
+    background: green;
+    text-decoration: none;
+    padding: 25px;
+
+}
+/*как вариант что бы не делать кучу класснеим*/
+.nav div{
+    padding-bottom: 5px;
+}
+
+.item  {
+    color: aqua;
+    text-decoration: none;
+    margin: 5px;
+
+}
+
+
+.active{
+    color: gold;
+
+}
+.navpad{
+    padding-bottom: 5px;
+}

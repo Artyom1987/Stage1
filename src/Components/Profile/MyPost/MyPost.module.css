@@ -1,0 +1,19 @@
+
+/*.content img{*/
+/*    width: 400px;*/
+/*    !*background-size: 100%*!*/
+/*}*/
+.postPic  {
+    width: 100px;
+    padding: 5px 10px;
+}
+.postPic img {
+    max-width:100%;
+    height:auto;
+}
+.areaStyle{
+    padding-left: 5px;
+}
+.buttonStyle{
+    padding: 10px;
+}
