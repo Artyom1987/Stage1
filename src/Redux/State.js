@@ -1,3 +1,5 @@
+import {renderTree} from "../Render";
+
 let state = {
     dialogsPage: {
         dialogs: [
@@ -22,5 +24,18 @@ let state = {
             {id: 3, message: "Beach so good", likeCount: "77"},
         ]
     },
+    sideBar:{},
 };
+
+export let addPost = (postMessage) => {
+       let addElement =
+        {id:1, message: postMessage, likeCount: "1"};
+        state.profilePage.myPosts.push(addElement);
+    renderTree(state);
+
+
+};
+
+
+
 export default state;
