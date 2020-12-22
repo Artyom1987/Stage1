@@ -1,14 +1,26 @@
 import React from 'react';
 import './index.css';
-import state from "./Redux/State";
-import {renderTree} from "./Render";
+import store  from "./Redux/State";
+import ReactDOM from "react-dom";
+import {BrowserRouter} from "react-router-dom";
+import App from "./App";
 
 
 
 
+ let renderTree = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App state={state} addPost={store.addPost.bind(store)} updatePostText={store.updatePostText.bind(store)}/>
+            </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+};
 
-
-renderTree(state);
+renderTree(store.getState());
+store.subscribe(renderTree);
 
 
 // If you want your app to work offline and load faster, you can change
