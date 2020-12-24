@@ -2,19 +2,21 @@ import React from 'react'
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import MessagesItem from "./MessageItem/Message";
+import {addNewMessageDispatch, updateMessageDispatch} from "../../Redux/State";
 
 
 const Dialogs = (props) => {
-  let newMessageElement = React.createRef();
-    let addMessage = () => {
-        let messageArea = newMessageElement.current.value;
-        alert(messageArea)
 
-  };
+    let addMessage = () => {
+        props.dispatch(addNewMessageDispatch())
+    };
+    const updateMessage = (event) => {
+        let text = event.target.value;
+        props.dispatch(updateMessageDispatch(text))
+    };
 
     let dialogsElements = props.state.dialogs.map((el) => <DialogItem name={el.name} id={el.id}/>);
-    let messageElements = props.state.messages.map((mess) => <MessagesItem message={mess.message}
-                                                                           likecount={mess.likecount}/>);
+    let messageElements = props.state.messages.map((mess) => <MessagesItem id={mess.id} message={mess.message}/>);
     return (
         <div>
             <div className={styles.dialogs}>
@@ -28,7 +30,8 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div>
-                <textarea ref={newMessageElement}>ведите текст</textarea>
+                <textarea onChange={updateMessage}
+                          value={props.state.newMessage}>aa</textarea>
             </div>
             <div>
                 <button onClick={addMessage}>отослать сообщение</button>

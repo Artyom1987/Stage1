@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import store  from "./Redux/State";
+import store from "./Redux/State";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -12,7 +12,7 @@ import App from "./App";
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} addPost={store.addPost.bind(store)} updatePostText={store.updatePostText.bind(store)}/>
+                <App state={state} dispatch={store.dispatch.bind(store)}  />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
