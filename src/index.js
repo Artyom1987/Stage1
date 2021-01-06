@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import store from "./Redux/State";
+import store from "./Redux/Redux-store";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -20,7 +20,11 @@ import App from "./App";
 };
 
 renderTree(store.getState());
-store.subscribe(renderTree);
+store.subscribe( () =>{
+       let state = store.getState();
+        renderTree(state)
+}
+    );
 
 
 // If you want your app to work offline and load faster, you can change
