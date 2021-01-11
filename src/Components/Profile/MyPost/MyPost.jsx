@@ -1,23 +1,21 @@
 import React from 'react'
 import styles from './MyPost.module.css'
 import Post from "./Post/Post";
-import {addPostCreateDispatch, changePostElementCreateDispatch} from "../../../Redux/ProfileReducer";
+
 
 
 const MyPost = (props) => {
 
 
     let newPostElement = React.createRef();
-let addPost = ()=> {
-
-    // props.addPost();
-    props.dispatch(addPostCreateDispatch())
+let onAddPost = ()=> {
+    props.addPost();
 
 };
 let changePostElement = () =>{
     let text = newPostElement.current.value;
-    // props.updatePostText(text) ;
-     props.dispatch(changePostElementCreateDispatch(text))
+    props.updatePostText(text) ;
+
 };
       const postElemnts = props.myPosts.map((el)=> <Post message={el.message} likeCount={el.likeCount}/>);
     return (
@@ -29,7 +27,7 @@ let changePostElement = () =>{
                 <textarea onChange={changePostElement} ref={newPostElement} value={props.newPostText} >add text</textarea>
             </div>
             <div className={styles.buttonStyle}>
-                <button onClick={addPost}>add text</button>
+                <button onClick={onAddPost}>add text</button>
             </div>
             {postElemnts}
 
