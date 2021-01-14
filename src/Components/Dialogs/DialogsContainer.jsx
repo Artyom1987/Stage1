@@ -1,9 +1,13 @@
 import React from 'react'
 import {addNewMessageDispatch, updateMessageDispatch} from "../../Redux/DialogReducer";
 import Dialogs from "./Dialogs";
+import StoreContext from "../../index"
+import {connect} from "react-redux";
 
 
 const DialogsContainer = (props) => {
+
+
     let state = props.store.getState().dialogsPage;
 
     let addMessage = () => {
@@ -17,5 +21,27 @@ const DialogsContainer = (props) => {
         <Dialogs updateMessageBody={updateMessage} sendNewMessage={addMessage} dialogsPage={state}
                  />
             )
+
 };
-export default DialogsContainer
+
+let mapStateToProps = (state) => {
+             return {
+                 dialogsPage: state.dialogsPage
+             }
+};
+let dispatchToProps = (dispatch) => {
+    return {
+        updateMessageBody: (text) => {
+            dispatch(updateMessageDispatch(text))
+        },
+
+        sendNewMessage: () => {
+            dispatch(addNewMessageDispatch())
+        }
+
+    }
+};
+
+const DialogContainers = connect (mapStateToProps,dispatchToProps) (Dialogs);
+
+export default DialogsContainer;

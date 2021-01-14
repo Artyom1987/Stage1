@@ -3,7 +3,6 @@ import './App.css'
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Navigation/Navigation";
 import Profile from "./Components/Profile/Profile";
-import Dialogs from "./Components/Dialogs/Dialogs";
 import { Route} from "react-router-dom";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
@@ -11,7 +10,7 @@ import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
-debugger
+
     return (
         <div className='app-wrapper'>
             <Header/>
